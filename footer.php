@@ -36,7 +36,7 @@ if ( !defined('ABSPATH') )
                 <div class="g1-layout-inner">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                     <?php 
-                        query_posts( array ( 'post_type' => 'clientes'));
+                        query_posts( array ( 'post_type' => 'clientes', 'posts_per_page' => 35));
                         while ( have_posts() ) : the_post(); 
                     ?>
                     <div class="item">
