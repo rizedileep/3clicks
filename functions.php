@@ -202,3 +202,100 @@ function g1_wp_tag_cloud( $return, $args ) {
 
     return $return;
 }
+
+/*
+    * Enable support for Post Thumbnails on posts and pages.
+    *
+    * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+*/
+
+add_image_size( 'cliente', 250, 100, array( 'center', 'center' ) );
+
+/**
+ * Client Post Type.
+ */
+function myClients() {
+
+	$labels = array(
+		'name'                => _x( 'Clientes', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Cliente', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Clientes', 'text_domain' ),
+		'parent_item_colon'   => __( 'Artículo padre:', 'text_domain' ),
+		'all_items'           => __( 'Todos los clientes', 'text_domain' ),
+		'view_item'           => __( 'Ver clientes', 'text_domain' ),
+		'add_new_item'        => __( 'Agregar nuevo cliente', 'text_domain' ),
+		'add_new'             => __( 'Añadir nuevo', 'text_domain' ),
+		'edit_item'           => __( 'Editar cliente', 'text_domain' ),
+		'update_item'         => __( 'Actualizar cliente', 'text_domain' ),
+		'search_items'        => __( 'Buscar clientes', 'text_domain' ),
+		'not_found'           => __( 'No encontrado', 'text_domain' ),
+		'not_found_in_trash'  => __( 'No se encuentra en la papelera', 'text_domain' ),
+	);
+	$args = array(
+		'label'               => __( 'clientes', 'text_domain' ),
+		'description'         => __( 'Agregar un cliente a su portafolio', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'thumbnail', ),
+		'taxonomies'          => array( 'thumbnail' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+	register_post_type( 'clientes', $args );
+
+}
+// Hook into the 'init' action
+add_action( 'init', 'myClients', 0 );
+
+function clientesBoxes( $meta_boxes ) {
+    $prefix = '_cl_'; // Prefix for all fields
+    $meta_boxes['client_metabox'] = array(
+        'id' => 'client_metabox',
+        'title' => 'Informacion del cliente',
+        'pages' => array('clientes'), // post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+        'fields' => array(
+				
+			array(
+    			'name' => 'Nombre de la empresa',
+    			'id' => $prefix . 'client_name',
+    			'type' => 'text'
+				),	
+				
+			array(
+    			'name' => 'Descripción del trabajo',
+    			'id' => $prefix . 'client_description',
+    			'type' => 'text'
+				),
+        ),
+    );
+
+    return $meta_boxes;
+}
+add_filter( 'cmb_meta_boxes', 'clientesBoxes' );
+
+// Initialize custom post types 
+add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+function be_initialize_cmb_meta_boxes() {
+    if ( !class_exists( 'cmb_Meta_Box' ) ) {
+        require_once( 'meta/init.php' );
+    }
+} 
+
+function addScripts() {
+    wp_enqueue_style( 'owl-caroulse-style', get_stylesheet_directory_uri() . '/js/owl-carousel/owl.carousel.css', array(), false, false );
+    wp_enqueue_style( 'owl-caroulse-theme', get_stylesheet_directory_uri() . '/js/owl-carousel/owl.theme.css', array(), false, false );
+    wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.min.js', array('jquery'), false, false );
+}
+add_action( 'wp_enqueue_scripts', 'addScripts' );

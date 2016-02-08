@@ -15,6 +15,49 @@ if ( !defined('ABSPATH') )
     die ( 'No direct script access allowed' );
 ?>
             </div>
+<?php 
+    $itemsBranch = query_posts( array ( 'post_type' => 'clientes'));
+    if(!empty($itemsBranch)){
+?>
+<script type="text/javascript"> 
+    jQuery(document).ready(function() {
+      var owl = jQuery("#owl-demo");
+      owl.owlCarousel({
+        items : 6, //10 items above 1000px browser width
+        itemsDesktop : [1000,5], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,3], // betweem 900px and 601px
+        itemsTablet: [600,2], //2 items between 600 and 0
+        itemsMobile : [480,1], // itemsMobile disabled - inherit from itemsTablet option
+        autoPlay: 3000
+    });
+});
+</script>
+            <div class="clientes">
+                <div class="g1-layout-inner">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                    <?php 
+                        query_posts( array ( 'post_type' => 'clientes', 'posts_per_page' => 8));
+                        while ( have_posts() ) : the_post(); 
+                    ?>
+                    <div class="item">
+                        <div class="img">
+                            <a href="<?php the_permalink(); ?>">    
+                            <?php 
+                                $var = get_the_post_thumbnail();
+                                if(empty($var)){
+                                    echo '<img class="wp-post-image" src="'. get_template_directory_uri().'/img/img-facture.png"/>';
+                                }else{
+                                    the_post_thumbnail('client');
+                                }       
+                            ?>
+                            </a>  
+                        </div>
+                    </div>
+                    <?php endwhile; // end of the loop. ?>   
+                </div>
+                </div>
+            </div>
+<?php } ?>
             <!-- END #g1-content-area -->
             <?php
                 /* Executes a custom hook.
