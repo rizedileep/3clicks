@@ -54,10 +54,10 @@ if ( !defined('ABSPATH') )
             <div id="g1-preheader-bar" class="g1-meta">
                 <div class="lang">
                     <ul>
-                        <li><a href="<?php get_site_url(1) ?>"><img src="<?php echo get_template_directory_uri();?>/images/en.png"/>English</a></li>
-                        <li><a href="<?php get_site_url(2) ?>"><img src="<?php echo get_template_directory_uri();?>/images/es.png"/>Spanish</a></li>
-                        <li><a href="<?php get_site_url(3) ?>"><img src="<?php echo get_template_directory_uri();?>/images/fr.png"/>France</a></li>
-                        <li><a href="<?php get_site_url(4) ?>"><img src="<?php echo get_template_directory_uri();?>/images/nl.png"/>Netherlands</a></li>
+                        <li><a href="<?php echo get_site_url(1) ?>"><img src="<?php echo get_template_directory_uri();?>/images/en.png"/>English</a></li>
+                        <li><a href="<?php echo get_site_url(2) ?>"><img src="<?php echo get_template_directory_uri();?>/images/es.png"/>Spanish</a></li>
+                        <li><a href="<?php echo get_site_url(3) ?>"><img src="<?php echo get_template_directory_uri();?>/images/fr.png"/>France</a></li>
+                        <li><a href="<?php echo get_site_url(4) ?>"><img src="<?php echo get_template_directory_uri();?>/images/nl.png"/>Netherlands</a></li>
                     </ul>
                 </div>
                 <?php if ( has_nav_menu( 'secondary_nav' ) ): ?>

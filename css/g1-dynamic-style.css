@@ -65,9 +65,12 @@ body, input, select, textarea { font-family:"Open Sans"; }
 .lang{
     padding-top: 5px;
     padding-bottom: 5px;
+    height: 30px;
 }
 .lang ul{
     list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
 .lang ul li{
     display: inline-block;
