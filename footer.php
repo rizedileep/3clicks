@@ -24,11 +24,13 @@ if ( !defined('ABSPATH') )
       var owl = jQuery("#owl-demo");
       owl.owlCarousel({
         items : 6, //10 items above 1000px browser width
-        itemsDesktop : [1000,5], //5 items between 1000px and 901px
-        itemsDesktopSmall : [900,3], // betweem 900px and 601px
-        itemsTablet: [600,2], //2 items between 600 and 0
-        itemsMobile : [480,1], // itemsMobile disabled - inherit from itemsTablet option
-        autoPlay: 3000
+        itemsDesktop : [1000,6], //5 items between 1000px and 901px
+        itemsDesktopSmall : [900,4], // betweem 900px and 601px
+        itemsTablet: [600,4], //2 items between 600 and 0
+        itemsMobile : [480,4], // itemsMobile disabled - inherit from itemsTablet option
+        autoPlay: 3000,
+        navigation: false,
+        pagination: false
     });
 });
 </script>
@@ -41,7 +43,7 @@ if ( !defined('ABSPATH') )
                     ?>
                     <div class="item">
                         <div class="img">
-                            <a href="<?php the_permalink(); ?>">    
+                              
                             <?php 
                                 $var = get_the_post_thumbnail();
                                 if(empty($var)){
@@ -50,7 +52,7 @@ if ( !defined('ABSPATH') )
                                     the_post_thumbnail('client');
                                 }       
                             ?>
-                            </a>  
+                             
                         </div>
                     </div>
                     <?php endwhile; // end of the loop. ?>   

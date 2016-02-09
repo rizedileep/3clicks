@@ -59,6 +59,24 @@ body, input, select, textarea { font-family:"Open Sans"; }
     -o-border-radius:0 0 0 0;
     border-radius:0 0 0 0;
 }
+.clientes{
+    padding-bottom: 20px;
+}
+.lang{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.lang ul{
+    list-style: none;
+}
+.lang ul li{
+    display: inline-block;
+    line-height: 24px;
+}
+.lang ul li img{
+    float: left;
+    margin-right: 5px;
+}
 input,
 select,
 textarea,
