@@ -437,31 +437,39 @@ add_action( 'wp_enqueue_scripts', 'addScripts' );
 
 //listado de certificados.
 
-function listCertificates(){
-    $items = query_posts( array ( 'post_type' => 'certificate'));
+function listCertificates($type){
+    
+    $items = query_posts( array ( 'post_type' => 'certificate', 'type' => $type, 'posts_per_page' => -1 ));
     
     $html = '<div class="g1-table g1-table--solid ">';
     $html .= '<table>';
     $html .= '<thead><tr><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
-    
+    $list = array();
+    $indexList = array();
+
     foreach ($items as $key => $value) {
+        
         $idPost = $value->ID;
         $score = get_field('puntaje', $idPost);
         $date =  new DateTime(get_field('fecha_de_emision', $idPost));
         $idCer = get_field('id_de_certificado', $idPost);
-        
+        $list[$idPost] = array('score' => trim($score), 'date' => $date, 'cert' => $idCer, 'title' => $value->post_title);
+        $indexList[$idPost] = array('score' => $score);
+    }
+    arsort($indexList); //reordenamos los items de acuerdo al score
+    foreach ($indexList as $key => $value) {
         $html .= '<tr>';
         $html .= '<td>';
-        $html .=  $value->post_title;
+        $html .=  $list[$key]['title'];
         $html .= '</td>';
         $html .= '<td>';
-        $html .= $score . ' %';
+        $html .= $list[$key]['score'] . ' %';
         $html .= '</td>';
         $html .= '<td>';
-        $html .= $date->format('D, d M Y');
+        $html .= $list[$key]['date']->format('D, d M Y');
         $html .= '</td>';
         $html .= '<td>';
-        $html .= $idCer;
+        $html .= $list[$key]['cert'];
         $html .= '</td>';
         $html .= '</tr>';
         

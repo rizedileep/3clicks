@@ -20,5 +20,5 @@ if ( !defined('ABSPATH') )
 ?>
 <?php get_header(); ?>
 	<?php get_template_part( 'template-parts/g1_primary_page' ); ?>
-        <?php listCertificates(); ?>
+        <?php listCertificates('cchapa'); ?>
 <?php get_footer(); ?>
