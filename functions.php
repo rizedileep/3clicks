@@ -370,6 +370,7 @@ function posts_columns($defaults){
     $defaults['type_certificate'] = __('Tipo de certificado');
     $defaults['id_certificate'] = _('ID de certificado');
     $defaults['date_certificate'] = _('Fecha de emisión');
+    $defaults['country'] = _('Pais');
     return $defaults;
 }
  
@@ -400,10 +401,20 @@ function posts_custom_columns($column_name, $post_id){
         case 'score':
             $score = get_field('puntaje', $post_id);
             echo $score.' %';
+            break;
+        case 'country':
+            $country = get_field('pais', $post_id);
+            if(!empty($country)){
+                echo $country;
+            }else{
+                echo 'No registrado';
+            }       
     }
-    
-  
 }
+
+
+
+//cambiar el texto del titulo del post type
 
 add_filter('gettext','custom_enter_title');
 
@@ -424,3 +435,41 @@ function addScripts() {
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
 
+//listado de certificados.
+
+function listCertificates(){
+    $items = query_posts( array ( 'post_type' => 'certificate'));
+    
+    $html = '<div class="g1-table g1-table--solid ">';
+    $html .= '<table>';
+    $html .= '<thead><tr><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
+    
+    foreach ($items as $key => $value) {
+        $idPost = $value->ID;
+        $score = get_field('puntaje', $idPost);
+        $date =  new DateTime(get_field('fecha_de_emision', $idPost));
+        $idCer = get_field('id_de_certificado', $idPost);
+        
+        $html .= '<tr>';
+        $html .= '<td>';
+        $html .=  $value->post_title;
+        $html .= '</td>';
+        $html .= '<td>';
+        $html .= $score . ' %';
+        $html .= '</td>';
+        $html .= '<td>';
+        $html .= $date->format('D, d M Y');
+        $html .= '</td>';
+        $html .= '<td>';
+        $html .= $idCer;
+        $html .= '</td>';
+        $html .= '</tr>';
+        
+    }
+    
+    $html .= '</table>';
+    $html .= '</div>';
+    
+    echo $html;
+    
+}
