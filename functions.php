@@ -293,9 +293,134 @@ function be_initialize_cmb_meta_boxes() {
     }
 } 
 
+/* add Certificados Chamilo */
+function myCertificates() {
+
+	$labels = array(
+		'name'                => _x( 'Certificados', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Certificado', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Certificados', 'text_domain' ),
+		'parent_item_colon'   => __( 'Artículo padre:', 'text_domain' ),
+		'all_items'           => __( 'Todos los certificados', 'text_domain' ),
+		'view_item'           => __( 'Ver certificados', 'text_domain' ),
+		'add_new_item'        => __( 'Agregar nuevo certificado', 'text_domain' ),
+		'add_new'             => __( 'Añadir nuevo', 'text_domain' ),
+		'edit_item'           => __( 'Editar certificado', 'text_domain' ),
+		'update_item'         => __( 'Actualizar certificado', 'text_domain' ),
+		'search_items'        => __( 'Buscar certificados', 'text_domain' ),
+		'not_found'           => __( 'No encontrado', 'text_domain' ),
+		'not_found_in_trash'  => __( 'No se encuentra en la papelera', 'text_domain' ),
+	);
+	$args = array(
+		'label'               => __( 'certificados', 'text_domain' ),
+		'description'         => __( 'Agregar un certificado al registro', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'thumbnail'),
+		'taxonomies'          => array( 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => false,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 6,
+		'can_export'          => true,
+		'has_archive'         => false,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+                'public'              => false, //no es publico y no tiene url
+		'capability_type'     => 'post',
+                'rewrite' => false,
+	);
+	register_post_type( 'certificate', $args );
+
+}
+// Hook into the 'init' action
+add_action( 'init', 'myCertificates', 0 );
+add_action( 'init', 'certificateTaxonomies', 0 );
+
+// Creamos dos taxonomías, género y autor para el custom post type "libro"
+function certificateTaxonomies() {
+	// Añadimos nueva taxonomía y la hacemos jerárquica (como las categorías por defecto)
+	$labels = array(
+	'name' => _x( 'Tipos de certificados', 'taxonomy general name' ),
+	'singular_name' => _x( 'Tipo de certificado', 'taxonomy singular name' ),
+	'search_items' =>  __( 'Buscar por certificados' ),
+	'all_items' => __( 'Todos los certificados' ),
+	'edit_item' => __( 'Editar tipo' ),
+	'update_item' => __( 'Actualizar tipo' ),
+	'add_new_item' => __( 'Añadir nuevo tipo' ),
+	'new_item_name' => __( 'Nombre del nuevo tipo' ),
+);
+    register_taxonomy( 'type', array( 'certificate' ), array(
+            'hierarchical' => true,
+            'labels' => $labels, /* ADVERTENCIA: Aquí es donde se utiliza la variable $labels */
+            'show_ui' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'type' ),
+    ));
+}
+
+//Añadimos datos a la vista de columnas para la vista de certificados
+//add_filter('manage_edit-certificate_columns', 'add_certificate_columns');
+
+add_filter('manage_certificate_posts_columns', 'posts_columns');
+function posts_columns($defaults){
+    $defaults['score'] = __('Puntaje Obtenido (%)');
+    $defaults['type_certificate'] = __('Tipo de certificado');
+    $defaults['id_certificate'] = _('ID de certificado');
+    $defaults['date_certificate'] = _('Fecha de emisión');
+    return $defaults;
+}
+ 
+//Añadir los valores según corresponda
+add_action('manage_certificate_posts_custom_column', 'posts_custom_columns', 5, 2);
+function posts_custom_columns($column_name, $post_id){
+    
+    switch ($column_name){
+        case 'type_certificate':
+            //llamamos las taxonomias registradas
+            $taxonomy = get_post_taxonomies();
+            //identificamos las taxonomias según el post.
+            $terms = get_the_terms($post_id, $taxonomy);
+            
+            foreach ($terms as $key => $value) {
+                echo '<strong>' . $value->name . '</strong><br>';
+                echo $value->description;
+            }
+            break;
+        case 'id_certificate':
+            $fieldID = get_field('id_de_certificado', $post_id);
+            echo $fieldID;
+            break;
+        case 'date_certificate':
+            $date = new DateTime(get_field('fecha_de_emision', $post_id));
+            echo $date->format('D, d M Y');
+            break;
+        case 'score':
+            $score = get_field('puntaje', $post_id);
+            echo $score.' %';
+    }
+    
+  
+}
+
+add_filter('gettext','custom_enter_title');
+
+function custom_enter_title( $input ) {
+
+    global $post_type;
+
+    if( is_admin() && 'Introduce el título aquí' == $input && 'certificate' == $post_type )
+        return 'Apellidos y nombres';
+
+    return $input;
+}
+
 function addScripts() {
     wp_enqueue_style( 'owl-caroulse-style', get_stylesheet_directory_uri() . '/js/owl-carousel/owl.carousel.css', array(), false, false );
     wp_enqueue_style( 'owl-caroulse-theme', get_stylesheet_directory_uri() . '/js/owl-carousel/owl.theme.css', array(), false, false );
     wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/js/owl-carousel/owl.carousel.min.js', array('jquery'), false, false );
 }
 add_action( 'wp_enqueue_scripts', 'addScripts' );
+
