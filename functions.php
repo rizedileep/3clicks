@@ -392,11 +392,11 @@ function posts_custom_columns($column_name, $post_id){
             }
             break;
         case 'id_certificate':
-            $fieldID = get_field('id_de_certificado', $post_id);
+            $fieldID = get_field('idcertificate', $post_id);
             echo $fieldID;
             break;
         case 'date_certificate':
-            $date = new DateTime(get_field('fecha_de_emision', $post_id));
+            $date = new DateTime(get_field('dateissue', $post_id));
             echo $date->format('D, d M Y');
             break;
         case 'score':
