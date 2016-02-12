@@ -453,8 +453,8 @@ function listCertificates($type){
         
         $idPost = $value->ID;
         $score = get_field('score', $idPost);
-        $date =  new DateTime(get_field('fecha_de_emision', $idPost));
-        $idCer = get_field('id_de_certificado', $idPost);
+        $date =  new DateTime(get_field('dateissue', $idPost));
+        $idCer = get_field('idcertificate', $idPost);
         $list[$idPost] = array('score' => trim($score), 'date' => $date, 'cert' => $idCer, 'title' => $value->post_title);
         $indexList[$idPost] = array('score' => $score);
     }
