@@ -293,6 +293,7 @@ function be_initialize_cmb_meta_boxes() {
     }
 } 
 
+
 /* add Certificados Chamilo */
 function myCertificates() {
 
@@ -441,6 +442,7 @@ function listCertificates($type){
     
     $items = query_posts( array ( 'post_type' => 'certificate', 'type' => $type, 'posts_per_page' => -1 ));
     
+    
     $html = '<div class="g1-table g1-table--solid ">';
     $html .= '<table>';
     $html .= '<thead><tr><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
@@ -481,3 +483,95 @@ function listCertificates($type){
     echo $html;
     
 }
+
+function getCountCountry($nameCountry, $items){
+    /* $list = array();
+    $counter = 0;
+  
+    foreach ($items as $key => $value) {
+        $idPost = $value->ID;
+        //$name = get_field('lastname', $idPost).', '. get_field('firstname', $idPost);;
+        $country = get_field('pais', $idPost);
+        
+        if(empty($country)){
+            $country = '';
+        }
+        if ($country == $nameCountry) {
+            $counter++;
+            //$list[$idPost] = array('name' => $name, 'country' => $country);
+        }
+    }
+    return $counter;*/
+}
+
+// auto title post type certificate despues de guardado
+
+add_filter('wp_insert_post_data', 'automaticTitle', 99, 2);
+
+function automaticTitle($data){
+    global $post;
+    if($data['post_type'] == 'certificate'){
+        $data['post_title'] = get_field('lastname', $data['ID']) . ', ' . get_field('firstname', $data['ID']);
+    }
+    return $data;
+}
+
+
+function loadJSMaps() {
+        
+        
+        wp_enqueue_style( 'style-jvectormaps', get_template_directory_uri(). '/js/jvectormap/jquery-jvectormap.css', array(), false, false );
+   
+        wp_enqueue_script( 'jvectormaps', get_template_directory_uri(). '/js/jvectormap/jquery-jvectormap.js', array(), false, false );
+        wp_enqueue_script( 'jmousewheel', get_template_directory_uri(). '/js/jvectormap/lib/jquery-mousewheel.js', array(), false, false );
+        wp_enqueue_script( 'jvectormap', get_template_directory_uri(). '/js/jvectormap/src/jvectormap.js', array(), false, false );
+        wp_enqueue_script( 'abstract-element', get_template_directory_uri(). '/js/jvectormap/src/abstract-element.js', array(), false, false );
+        wp_enqueue_script( 'abstract-canvas', get_template_directory_uri(). '/js/jvectormap/src/abstract-canvas-element.js', array(), false, false );
+        wp_enqueue_script( 'abstract-shape', get_template_directory_uri(). '/js/jvectormap/src/abstract-shape-element.js', array(), false, false );
+        
+        wp_enqueue_script( 'svg-element', get_template_directory_uri(). '/js/jvectormap/src/svg-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-group-element', get_template_directory_uri(). '/js/jvectormap/src/svg-group-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-canvas', get_template_directory_uri(). '/js/jvectormap/src/svg-canvas-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-shape', get_template_directory_uri(). '/js/jvectormap/src/svg-shape-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-patch', get_template_directory_uri(). '/js/jvectormap/src/svg-path-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-circle', get_template_directory_uri(). '/js/jvectormap/src/svg-circle-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-image', get_template_directory_uri(). '/js/jvectormap/src/svg-image-element.js', array(), false, false );
+        wp_enqueue_script( 'svg-text', get_template_directory_uri(). '/js/jvectormap/src/svg-text-element.js', array(), false, false );
+        
+        wp_enqueue_script( 'vml-element', get_template_directory_uri(). '/js/jvectormap/src/vml-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-group', get_template_directory_uri(). '/js/jvectormap/src/vml-group-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-canvas', get_template_directory_uri(). '/js/jvectormap/src/vml-canvas-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-shape', get_template_directory_uri(). '/js/jvectormap/src/vml-shape-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-patch', get_template_directory_uri(). '/js/jvectormap/src/vml-path-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-circle', get_template_directory_uri(). '/js/jvectormap/src/vml-circle-element.js', array(), false, false );
+        wp_enqueue_script( 'vml-image', get_template_directory_uri(). '/js/jvectormap/src/vml-image-element.js', array(), false, false );
+        
+        wp_enqueue_script( 'map-object', get_template_directory_uri(). '/js/jvectormap/src/map-object.js', array(), false, false );
+        wp_enqueue_script( 'map-region', get_template_directory_uri(). '/js/jvectormap/src/region.js', array(), false, false );
+        wp_enqueue_script( 'map-marker', get_template_directory_uri(). '/js/jvectormap/src/map-marker.js', array(), false, false );
+        
+        wp_enqueue_script( 'vector-canvas', get_template_directory_uri(). '/js/jvectormap/src/vector-canvas.js', array(), false, false );
+        wp_enqueue_script( 'simple-scale', get_template_directory_uri(). '/js/jvectormap/src/simple-scale.js', array(), false, false);
+        wp_enqueue_script( 'ordinal-scale', get_template_directory_uri(). '/js/jvectormap/src/ordinal-scale.js', array(), false, false );
+        wp_enqueue_script( 'numeric-scale', get_template_directory_uri(). '/js/jvectormap/src/numeric-scale.js', array(), false, false );
+        wp_enqueue_script( 'color-scale', get_template_directory_uri(). '/js/jvectormap/src/color-scale.js', array(), false, false );
+        wp_enqueue_script( 'legend', get_template_directory_uri(). '/js/jvectormap/src/legend.js', array(), false, false );
+        wp_enqueue_script( 'data-series', get_template_directory_uri(). '/js/jvectormap/src/data-series.js', array(), false, false );
+        wp_enqueue_script( 'proj', get_template_directory_uri(). '/js/jvectormap/src/proj.js', array(), false, false );
+        wp_enqueue_script( 'map', get_template_directory_uri(). '/js/jvectormap/src/map.js', array(), false, false );
+        
+        wp_enqueue_script( 'jvectormap-world', get_template_directory_uri(). '/js/jvectormap/lib/jquery-jvectormap-world-mill.js', array(), false, false );
+    
+}
+
+add_action( 'wp_enqueue_scripts', 'loadJSMaps' ); 
+
+//quitamos el title del post type certificate
+
+//add_action('admin_init', 'removeTitle');
+
+//function removeTitle(){
+    
+  //      remove_post_type_support('certificate', 'title');
+    
+//}

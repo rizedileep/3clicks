@@ -46,7 +46,7 @@
 
         return that;
     })();
-
+    
     var shortcode = function($shortcode) {
         var that = {};
         var name;
