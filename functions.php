@@ -400,11 +400,11 @@ function posts_custom_columns($column_name, $post_id){
             echo $date->format('D, d M Y');
             break;
         case 'score':
-            $score = get_field('puntaje', $post_id);
+            $score = get_field('score', $post_id);
             echo $score.' %';
             break;
         case 'country':
-            $country = get_field('pais', $post_id);
+            $country = get_field('country', $post_id);
             if(!empty($country)){
                 echo $country;
             }else{
@@ -452,7 +452,7 @@ function listCertificates($type){
     foreach ($items as $key => $value) {
         
         $idPost = $value->ID;
-        $score = get_field('puntaje', $idPost);
+        $score = get_field('score', $idPost);
         $date =  new DateTime(get_field('fecha_de_emision', $idPost));
         $idCer = get_field('id_de_certificado', $idPost);
         $list[$idPost] = array('score' => trim($score), 'date' => $date, 'cert' => $idCer, 'title' => $value->post_title);
