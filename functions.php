@@ -445,7 +445,7 @@ function listCertificates($type){
     
     $html = '<div class="g1-table g1-table--solid ">';
     $html .= '<table>';
-    $html .= '<thead><tr><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
+    $html .= '<thead><tr><th>N°</th><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
     $list = array();
     $indexList = array();
 
@@ -459,8 +459,12 @@ function listCertificates($type){
         $indexList[$idPost] = array('score' => $score);
     }
     arsort($indexList); //reordenamos los items de acuerdo al score
+    $count = 1;
     foreach ($indexList as $key => $value) {
         $html .= '<tr>';
+        $html .= '<td>';
+        $html .= $count;
+        $html .= '</td>';
         $html .= '<td>';
         $html .=  $list[$key]['title'];
         $html .= '</td>';
@@ -474,7 +478,7 @@ function listCertificates($type){
         $html .= $list[$key]['cert'];
         $html .= '</td>';
         $html .= '</tr>';
-        
+        $count++;
     }
     
     $html .= '</table>';
