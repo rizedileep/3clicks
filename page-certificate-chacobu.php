@@ -30,7 +30,7 @@ if ( !defined('ABSPATH') )
      
       $('#map-chamilo').vectorMap({
         map: 'world_mill',
-        panOnDrag: true,
+        panOnDrag: false,
         hoverOpacity: 0.85,
 	hoverColor: false,
         backgroundColor: '#ffffff',

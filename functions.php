@@ -445,7 +445,7 @@ function listCertificates($type){
     
     $html = '<div class="g1-table g1-table--solid ">';
     $html .= '<table>';
-    $html .= '<thead><tr><th>N°</th><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th></tr></thead>';
+    $html .= '<thead><tr><th>N°</th><th>Surname / Name</th><th>Score</th><th>Date</th><th>Certification Number</th><th>Country</th></tr></thead>';
     $list = array();
     $indexList = array();
 
@@ -453,9 +453,10 @@ function listCertificates($type){
         
         $idPost = $value->ID;
         $score = get_field('score', $idPost);
+        $country = get_field('country', $idPost);
         $date =  new DateTime(get_field('dateissue', $idPost));
         $idCer = get_field('idcertificate', $idPost);
-        $list[$idPost] = array('score' => trim($score), 'date' => $date, 'cert' => $idCer, 'title' => $value->post_title);
+        $list[$idPost] = array('score' => trim($score), 'date' => $date, 'cert' => $idCer, 'title' => $value->post_title, 'country' => ($country != '' ? $country : 'Not registered'));
         $indexList[$idPost] = array('score' => $score);
     }
     arsort($indexList); //reordenamos los items de acuerdo al score
@@ -476,6 +477,9 @@ function listCertificates($type){
         $html .= '</td>';
         $html .= '<td>';
         $html .= $list[$key]['cert'];
+        $html .= '</td>';
+        $html .= '<td>';
+        $html .= $list[$key]['country'];
         $html .= '</td>';
         $html .= '</tr>';
         $count++;
