@@ -488,24 +488,24 @@ function listCertificates($type){
     
 }
 
-function getCountCountry($nameCountry, $items){
-    /* $list = array();
-    $counter = 0;
-  
-    foreach ($items as $key => $value) {
-        $idPost = $value->ID;
-        //$name = get_field('lastname', $idPost).', '. get_field('firstname', $idPost);;
-        $country = get_field('pais', $idPost);
+function getCountCountry($nameCountry){
+    
+    global $wpdb;
+    $sql =  $wpdb->prepare("SELECT ID, post_status, post_type, meta_key, meta_value, COUNT(*) AS score from bn_2_posts
+            INNER JOIN bn_2_postmeta on bn_2_posts.ID = bn_2_postmeta.post_id WHERE
+            bn_2_posts.post_type ='certificate' AND bn_2_posts.post_status = 'publish' AND bn_2_postmeta.meta_key = 'country'
+            GROUP BY meta_value");
+   
+    $list = $wpdb->get_results($sql);
+    $count = 0;
+    foreach ($list as $key => $value) {
         
-        if(empty($country)){
-            $country = '';
-        }
-        if ($country == $nameCountry) {
-            $counter++;
-            //$list[$idPost] = array('name' => $name, 'country' => $country);
+        if($value->meta_value == $nameCountry){
+            $count = $value->score;
         }
     }
-    return $counter;*/
+    return $count;
+    
 }
 
 // auto title post type certificate despues de guardado
