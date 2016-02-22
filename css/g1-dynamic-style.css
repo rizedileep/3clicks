@@ -33,9 +33,11 @@ body, input, select, textarea { font-family:"Open Sans"; }
     	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
     	background-color:#8C8C8C;
     	color:#FFFFFF;
-    	font-size: 14px;
+    	font-size: 12px;
     	font-weight: bold;
     	border-left: 1px solid #A3A3A3;
+        vertical-align: middle;
+        text-align: center;
     }
     .datagrid table thead th:first-child {
     	border: none;
