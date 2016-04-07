@@ -556,7 +556,7 @@ function loadJSMaps() {
         
         wp_enqueue_script( 'map-object', get_template_directory_uri(). '/js/jvectormap/src/map-object.js', array(), false, false );
         wp_enqueue_script( 'map-region', get_template_directory_uri(). '/js/jvectormap/src/region.js', array(), false, false );
-        wp_enqueue_script( 'map-marker', get_template_directory_uri(). '/js/jvectormap/src/map-marker.js', array(), false, false );
+        wp_enqueue_script( 'map-marker', get_template_directory_uri(). '/js/jvectormap/src/marker.js', array(), false, false );
         
         wp_enqueue_script( 'vector-canvas', get_template_directory_uri(). '/js/jvectormap/src/vector-canvas.js', array(), false, false );
         wp_enqueue_script( 'simple-scale', get_template_directory_uri(). '/js/jvectormap/src/simple-scale.js', array(), false, false);
