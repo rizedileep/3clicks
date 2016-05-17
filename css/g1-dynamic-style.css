@@ -58,7 +58,11 @@ body, input, select, textarea { font-family:"Open Sans"; }
     .datagrid table tbody tr:last-child td {
     	border-bottom: none;
     }
-
+    
+.ssba div{
+	width: 968px;
+  margin: auto;
+}
 
 /* logo on left, menu on right */
 #g1-id {
