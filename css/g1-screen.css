@@ -3532,7 +3532,7 @@ body { position: relative; }
 	box-sizing: border-box;
 }
 .section-one{
-	background: url("images/bg1.png");
+	background: url("../images/bg1.png");
 	background-size: cover;
 	color: #FFF;
 	padding-top: 20px;
@@ -3542,7 +3542,7 @@ body { position: relative; }
 	width: 100%; 
 }
 .section-four{
-	background: url("images/bg2.png");
+	background: url("../images/bg2.png");
 	background-size: cover;
 	display: inline-block;
 	width: 100%;
