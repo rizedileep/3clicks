@@ -3506,3 +3506,169 @@ body { position: relative; }
 .comment-form p { margin-bottom: 0; }
 .comment-form label { display: block; padding-bottom: 0; }
 .comment-form .form-submit { margin-top: 1.5em; }
+
+/* skillms */
+.container{
+	max-width: 94.53125%;
+	width: 968px;
+	margin: auto;
+}
+.container{
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.container::before{
+	display: table;
+	content: " ";
+}
+.container::after{
+	clear: both;
+}
+#skillms *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.section-one{
+	background: url("images/bg1.png");
+	background-size: cover;
+	color: #FFF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	display: block;
+	width: 100%; 
+}
+.section-four{
+	background: url("images/bg2.png");
+	background-size: cover;
+	display: inline-block;
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #FFF;
+}
+.section-one p{
+	font-size: 18px;
+	line-height: 1.5em;
+}
+.titulo{
+	border-bottom: 1px solid #0286A8;
+	padding-bottom: 20px;
+	color: #0286A8;
+}
+.img-responsive{
+	display: block;
+  	max-width: 100%;
+  	height: auto;
+}
+.section-two{
+	padding-bottom: 40px;
+	padding-top: 40px;
+	text-align: center;
+	display: inline-block;
+	background: #F5F5F5;
+	width: 100%; 
+}
+.text-desc{
+	padding-top: 25px;
+	padding-bottom: 20px;
+}
+.text-desc p{
+	line-height: 1.5em;
+	font-size: 18px;
+	color: #666;
+}
+.row-skills::before{
+	display: table;
+	content: " ";
+}
+.row-skills::after{
+	clear: both;
+}
+.row-skills{
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.blocks{
+	display: inline-block;
+	width: 100%;
+	list-style: none;
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-top: 60px;
+}
+.blocks::before{
+	display: table;
+	content: " ";
+}
+.blocks::after{
+	clear: both;
+}
+.blocks li{
+	width: 33.33333333%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.blocks li .items{
+	padding: 10px;
+	border: 1px solid #CCC;
+	display: inline-block;
+	min-height: 375px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background: #F5F5F5;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+}
+.items h3{
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	font-size: 16px;
+	color: #0781A5;
+}
+.items ul{
+	font-size: 12px;
+	line-height: 1.5em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	color: #666;
+	text-align: center;
+}
+.section-tree{
+	margin-top: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+	width: 100%; 
+}
+.blocks li ul li{
+	width: 100%;
+	text-align: left;
+}
+.col-md-6{
+	width: 50%;
+}
+.col-md-6{
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.gestion ul li{
+	font-size: 12px;
+}
+.gestion h4{
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+/*fin de skillms */
