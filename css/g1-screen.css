@@ -3652,6 +3652,10 @@ body { position: relative; }
 	color: #666;
 	text-align: center;
 }
+.items h4{
+    color: #0781A5 !important;
+    text-align: center;
+}
 .section-tree{
 	margin-top: 10px;
 	padding-top: 20px;
@@ -3664,6 +3668,7 @@ body { position: relative; }
 	width: 100%;
 	text-align: left;
     background: url("../images/blue.png") no-repeat;
+    padding-left: 25px;
 }
 .col-md-6{
 	width: 50%;
