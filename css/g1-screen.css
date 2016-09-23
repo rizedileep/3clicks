@@ -3532,7 +3532,11 @@ body { position: relative; }
 	box-sizing: border-box;
 }
 #skillms h1{
-    color: #FFF;
+    color: #FFF !important;
+    font-weight: bold;
+}
+#skillms h4{
+    color: #FFF !important;
     font-weight: bold;
 }
 .section-one{
@@ -3656,7 +3660,7 @@ body { position: relative; }
 .blocks li ul li{
 	width: 100%;
 	text-align: left;
-    background: url("images/blue.png") no-repeat;
+    background: url("../images/blue.png") no-repeat;
 }
 .col-md-6{
 	width: 50%;
