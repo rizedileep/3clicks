@@ -3526,6 +3526,9 @@ body { position: relative; }
 .container::after{
 	clear: both;
 }
+.page-id-4981 .g1-nav-breadcrumbs{
+    display: none;
+}
 #skillms *{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
