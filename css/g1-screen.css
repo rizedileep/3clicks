@@ -3531,6 +3531,10 @@ body { position: relative; }
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+#skillms h1{
+    color: #FFF;
+    font-weight: bold;
+}
 .section-one{
 	background: url("../images/bg1.png");
 	background-size: cover;
@@ -3652,6 +3656,7 @@ body { position: relative; }
 .blocks li ul li{
 	width: 100%;
 	text-align: left;
+    background: url("images/blue.png") no-repeat;
 }
 .col-md-6{
 	width: 50%;
