@@ -3652,7 +3652,7 @@ body { position: relative; }
 	color: #666;
 	text-align: center;
 }
-.blocks .items h4{
+.blocks .items .color{
     color: #0781A5 !important;
     text-align: center;
 }
