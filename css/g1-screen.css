@@ -3689,3 +3689,80 @@ body { position: relative; }
 	padding: 0;
 }
 /*fin de skillms */
+/* inicio skalatest */
+.skalatest .item{
+	text-align: center;
+	padding: 20px;
+}
+.skalatest .item h4{
+	font-size: 16px;
+	font-weight: bold;
+	color: #FF6600;
+}
+.skalatest .item .name{
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 20px;
+}
+.skalatest .item .lista{
+	text-align: left;
+}
+.skalatest .title{
+	font-size: 24px;
+	color: #216778;
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-weight: bold;
+}
+.skalatest .problems{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.skalatest .problems li{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	padding-right: 20px;
+	margin-bottom: 5px;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+}
+.skalatest .one{
+	background: url('../images/1.png') no-repeat #FAFAFA 0 center;
+}
+.skalatest .two{
+	background: url('../images/2.png') no-repeat #FAFAFA 0 center;
+}
+.skalatest .three{
+	background: url('../images/3.png') no-repeat #FAFAFA 0 center;
+}
+.skalatest .section-four{
+	background-color: #EE3F39;
+	color: #FFF;
+	padding-top: 20px;
+}
+.skalatest .section-four .title,
+.skalatest .section-four .item h4{
+	color: #FFF;
+}
+.skalatest .section-five{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #216778;
+	color: #FFF;
+	text-align: center;
+}
+.skalatest .section-five h2{
+	padding:0;
+	margin: 0;
+	font-size: 25px;
+}
+.skalatest .section-five a{
+	color: #FFFF00;
+}
+
+/* fin skalatest */
