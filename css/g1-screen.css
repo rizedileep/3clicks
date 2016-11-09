@@ -3542,7 +3542,7 @@ body { position: relative; }
     color: #FFF !important;
     font-weight: bold;
 }
-.section-one{
+#skillms .section-one{
 	background: url("../images/bg1.png");
 	background-size: cover;
 	color: #FFF;
@@ -3552,7 +3552,7 @@ body { position: relative; }
 	display: block;
 	width: 100%; 
 }
-.section-four{
+#skillms .section-four{
 	background: url("../images/bg2.png");
 	background-size: cover;
 	display: inline-block;
@@ -3561,7 +3561,7 @@ body { position: relative; }
 	padding-bottom: 50px;
 	color: #FFF;
 }
-.section-one p{
+#skillms .section-one p{
 	font-size: 18px;
 	line-height: 1.5em;
 }
@@ -3575,7 +3575,7 @@ body { position: relative; }
   	max-width: 100%;
   	height: auto;
 }
-.section-two{
+#skillms .section-two{
 	padding-bottom: 40px;
 	padding-top: 40px;
 	text-align: center;
@@ -3656,7 +3656,7 @@ body { position: relative; }
     color: #0781A5 !important;
     text-align: center;
 }
-.section-tree{
+#skillms .section-tree{
 	margin-top: 10px;
 	padding-top: 20px;
 	padding-bottom: 20px;
