@@ -3539,7 +3539,6 @@ body { position: relative; }
     font-weight: bold;
 }
 #skillms h4{
-    color: #FFF !important;
     font-weight: bold;
 }
 #skillms .section-one{
@@ -3670,6 +3669,24 @@ body { position: relative; }
     background: url("../images/blue.png") no-repeat;
     padding-left: 25px;
 }
+.skalatest .row{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.skalatest .col-md-3{
+    width: 25%;
+    float: left;
+}
+.skalatest .item p{
+    color: #FFF;
+}
+.skalatest .col-md-4 {
+    width: 33.33333333%;
+    float: left;
+}
+.skalatest .section-two{
+    display: inline-block;
+}
 .col-md-6{
 	width: 50%;
 }
@@ -3697,7 +3714,7 @@ body { position: relative; }
 .skalatest .item h4{
 	font-size: 16px;
 	font-weight: bold;
-	color: #FF6600;
+	color: #FFF;
 }
 .skalatest .item .name{
 	font-weight: bold;
