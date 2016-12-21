@@ -3684,8 +3684,9 @@ body { position: relative; }
     width: 33.33333333%;
     float: left;
 }
-.skalatest .section-one, .skalatest .section-two, .skalatest .section-tree, .skalatest .section-four, .skalatest .section-five{
-    display: inline-block;
+.skalatest .section-one, .skalatest .section-two, .skalatest .section-three, .skalatest .section-four, .skalatest .section-five{
+    display: block;
+    width: 100%;
 }
 .col-md-6{
 	width: 50%;
