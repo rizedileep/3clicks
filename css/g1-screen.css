@@ -3684,7 +3684,7 @@ body { position: relative; }
     width: 33.33333333%;
     float: left;
 }
-.skalatest .section-two{
+.skalatest .section-one, .skalatest .section-two, .skalatest .section-tree, .skalatest .section-four, .skalatest .section-five{
     display: inline-block;
 }
 .col-md-6{
