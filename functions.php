@@ -68,47 +68,47 @@ if ( is_plugin_active('sfwd-lms/sfwd_lms.php') ) {
  * Just copy the below line to the functions.php file from your child theme:
  * define( 'G1_TWITTER_MODULE', false );
  */
-define( 'G1_TWITTER_MODULE', true );
+/*define( 'G1_TWITTER_MODULE', false );
 if ( G1_TWITTER_MODULE ) {
     require_once( G1_LIB_DIR . '/g1-twitter/g1-twitter.php' );
-}
+}*/
 
 /* Do you want to disable the GMap module completely?
  *
  * Just copy the below line to the functions.php file from your child theme:
  * define( 'G1_GMAP_MODULE', false );
  */
-define( 'G1_GMAP_MODULE', true );
+/*define( 'G1_GMAP_MODULE', false );
 if ( G1_GMAP_MODULE ) {
     require_once( G1_LIB_DIR . '/g1-gmap/g1-gmap.php' );
-}
+}*/
 
 /* Do you want to disable the Mailchimp module completely?
  *
  * Just copy the below line to the functions.php file from your child theme:
  * define( 'G1_MAILCHIMP_MODULE', false );
  */
-define( 'G1_MAILCHIMP_MODULE', true );
+/*define( 'G1_MAILCHIMP_MODULE', false );
 if ( G1_MAILCHIMP_MODULE ) {
     require_once( G1_LIB_DIR . '/g1-mailchimp/g1-mailchimp.php' );
-}
+}*/
 
 /* Do you want to disable the Maintenance module completely?
  *
  * Just copy the below line to the functions.php file from your child theme:
  * define( 'G1_MAINTENANCE_MODULE', false );
  */
-define( 'G1_MAINTENANCE_MODULE', true );
+/*define( 'G1_MAINTENANCE_MODULE', true );
 if ( G1_MAINTENANCE_MODULE ) {
     require_once( G1_LIB_DIR . '/g1-maintenance/g1-maintenance.php' );
-}
+}*/
 
 /* Do you want to disable the Contact Form module completely?
  *
  * Just copy the below line to the functions.php file from your child theme:
  * define( 'G1_TWITTER_MODULE', false );
  */
-define( 'G1_CONTACT_FORM_MODULE', true );
+define( 'G1_CONTACT_FORM_MODULE', false );
 if ( G1_CONTACT_FORM_MODULE ) {
     require_once( G1_LIB_DIR . '/g1-contact-form/g1-contact-form.php' );
 }

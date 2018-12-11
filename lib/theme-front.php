@@ -1916,7 +1916,7 @@ class G1_Theme_Front {
         wp_register_script( 'skrollr', $parent_uri . 'js/skrollr/skrollr.min.js', array(), '0.5.14', true );
         wp_register_script( 'jquery.magnific-popup', $parent_uri . 'js/jquery.magnific-popup/jquery.magnific-popup.min.js', array('jquery'), $version, true );
 
-        wp_register_script( 'jquery.smoothscroll', $parent_uri . 'js/jquery.smoothscroll/jquery.smoothscroll.js', array('jquery'), $version, true );
+        //wp_register_script( 'jquery.smoothscroll', $parent_uri . 'js/jquery.smoothscroll/jquery.smoothscroll.js', array('jquery'), $version, true );
 
         // Register child theme related scripts
         if ( $parent_uri !== $child_uri ) {
@@ -1941,7 +1941,7 @@ class G1_Theme_Front {
         wp_enqueue_script( 'jquery.waypoints' );
         wp_enqueue_script( 'skrollr' );
         wp_enqueue_script( 'jquery.magnific-popup' );
-        wp_enqueue_script( 'jquery.smoothscroll' );
+//        wp_enqueue_script( 'jquery.smoothscroll' );
 
         wp_enqueue_script( 'g1_main' );
         wp_enqueue_script( 'modernizr' );
